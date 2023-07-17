@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/deploy', methods=['GET'])
 def run_command():
-    command = request.form['command']
     directory = os.environ.get('LINUX_DIRECTORY', '')
+    command = os.environ.get('LINUX_COMMAND', '')
 
     if directory:
         os.chdir(directory)
